@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
-const router = require("./router/userRoute")
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const router = require("./router/userRoute");
+app.use(express.json())
 
 mongoose.connect("mongodb://127.0.0.1:27017/merndb").then(()=>{
-     console.log("connected");
+      console.log("connected");
 }).catch((error)=>{
-      console.log("error", error);
+      console.log("errror", error);
 })
+
 
 
 app.use(router);
